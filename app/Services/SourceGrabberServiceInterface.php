@@ -5,14 +5,14 @@ namespace App\Services;
 
 use App\Game;
 
-interface StreamingSourceServiceInterface
+interface SourceGrabberServiceInterface
 {
 
     /**
      * Return generator with list current stream by game
-     * @param Game $game
+     * @param Game[] $game
      * @return \Generator
      */
-    function getStreams(Game $game);
+    function grab(array $game);
 
 }

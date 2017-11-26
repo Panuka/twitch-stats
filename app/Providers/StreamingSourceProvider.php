@@ -3,16 +3,16 @@
 namespace App\Providers;
 
 
+use App\Services\SourceManagerService;
+use App\Services\SourceManagerServiceInterface;
 use Illuminate\Support\ServiceProvider;
-use App\Services\StreamingSourceService;
-use App\Services\StreamingSourceServiceInterface;
 
 class StreamingSourceProvider extends ServiceProvider
 {
 
     public function register()
     {
-        $this->app->bind(StreamingSourceServiceInterface::class, StreamingSourceService::class);
+        $this->app->bind(SourceManagerServiceInterface::class, SourceManagerService::class);
     }
 
 }

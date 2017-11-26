@@ -2,7 +2,8 @@
 
 namespace App\Jobs;
 
-use App\Services\StreamingSourceServiceInterface;
+use App\Game;
+use App\Services\SourceManagerServiceInterface;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -13,11 +14,11 @@ class StreamsDataGrabberJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $streamingSourceService;
+    private $sourceManagerService;
 
-    public function __construct(StreamingSourceServiceInterface $streamingSourceService)
+    public function __construct(SourceManagerServiceInterface $sourceManagerService)
     {
-        $this->streamingSourceService = $streamingSourceService;
+        $this->sourceManagerService = $sourceManagerService;
     }
 
     /**
@@ -27,11 +28,11 @@ class StreamsDataGrabberJob implements ShouldQueue
      */
     public function handle()
     {
-        // yield
-        $streams = $this->streamingSourceService->getStreams();
+        $grabbers = $this->sourceManagerService->getActiveGrabbers();
+        $games = Game::all()->toArray();
 
-        foreach ($streams as $stream) {
-            // to storage
+        foreach ($grabbers as $grabber) {
+            $grabber->grab($games);
         }
 
         return;
