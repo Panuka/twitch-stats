@@ -178,6 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\StreamingSourceProvider::class,
 
+        CloudCreativity\LaravelJsonApi\ServiceProvider::class,
+
     ],
 
     /*
@@ -226,6 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'JsonApi' => CloudCreativity\LaravelJsonApi\Facades\JsonApi::class,
 
     ],
 

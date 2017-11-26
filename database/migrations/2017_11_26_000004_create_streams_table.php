@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStreamInfoLogsTable extends Migration
+class CreateStreamsTable extends Migration
 {
 
     /**
@@ -14,7 +14,7 @@ class CreateStreamInfoLogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('stream_info_logs', function (Blueprint $table) {
+        Schema::create('streams', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('game_id');
             $table->integer('channel_id');
@@ -31,6 +31,6 @@ class CreateStreamInfoLogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stream_info_logs');
+        Schema::dropIfExists('streams');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Services;
 
 
-use App\StreamInfoLog;
+use App\Streams;
 use App\StreamingServiceGame;
 use TwitchApi\TwitchApi;
 
@@ -48,7 +48,7 @@ class TwitchGrabber implements SourceGrabberServiceInterface
             }
         }
 
-        return StreamInfoLog::insert($streamInfoLogsData);
+        return Streams::insert($streamInfoLogsData);
     }
 
     private function getStreams($gameId)

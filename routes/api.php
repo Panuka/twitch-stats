@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use CloudCreativity\LaravelJsonApi\Facades\JsonApi;
+use CloudCreativity\LaravelJsonApi\Routing\ApiGroup as Api;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,10 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+
+JsonApi::register('default', ['namespace' => 'Api'], function (Api $api) {
+    $api->resource('streams', ['only' => ['index']]);
 });
