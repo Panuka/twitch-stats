@@ -19,6 +19,15 @@ class StreamsController extends BaseController
      * @param \CloudCreativity\JsonApi\Contracts\Http\Requests\RequestInterface $request
      * @return \Illuminate\Http\Response
      */
+    public function viewersCount(StoreInterface $store, RequestInterface $request) {
+        //TODO: Aggregate by viewers count
+    }
+
+    /**
+     * @param \CloudCreativity\JsonApi\Contracts\Store\StoreInterface $store
+     * @param \CloudCreativity\JsonApi\Contracts\Http\Requests\RequestInterface $request
+     * @return \Illuminate\Http\Response
+     */
     public function index(StoreInterface $store, RequestInterface $request)
     {
         $records = $store->query(

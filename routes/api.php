@@ -17,7 +17,9 @@ use CloudCreativity\LaravelJsonApi\Routing\ApiGroup as Api;
 
 
 //Route::group(['middleware' => 'auth:api'], function () {
-    JsonApi::register('default', ['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\IpMiddleware::class]], function (Api $api) {
+    JsonApi::register('default', ['namespace' => 'Api', 'as' => 'api.', 'middleware' => [\App\Http\Middleware\IpMiddleware::class]], function (Api $api, $router) {
+        $router->resource('streams', 'StreamsController', ['only' => ['viewersCount']]);
         $api->resource('streams', ['only' => ['index']]);
+        $router->get('streams/viewersCount', 'StreamsController@viewersCount');
     });
 //});
