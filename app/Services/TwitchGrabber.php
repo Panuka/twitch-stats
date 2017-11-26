@@ -42,6 +42,7 @@ class TwitchGrabber implements SourceGrabberServiceInterface
                 foreach ($streamsPage['streams'] as $stream) {
                     $data = $stub;
                     $data['viewer_count'] = $stream['viewers'];
+                    $data['channel_id'] = $stream['channel']['_id'];
                     $streamInfoLogsData[] = $data;
                 }
             }

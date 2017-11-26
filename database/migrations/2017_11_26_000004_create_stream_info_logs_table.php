@@ -17,6 +17,7 @@ class CreateStreamInfoLogsTable extends Migration
         Schema::create('stream_info_logs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('game_id');
+            $table->integer('channel_id');
             $table->integer('streaming_service_id');
             $table->integer('viewer_count');
             $table->dateTime('date');

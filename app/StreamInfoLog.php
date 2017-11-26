@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\StreamInfoLog whereStreamingServiceId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\StreamInfoLog whereViewerCount($value)
  * @mixin \Eloquent
+ * @property int $channel_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\StreamInfoLog whereChannelId($value)
  */
 class StreamInfoLog extends Model
 {
