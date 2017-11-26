@@ -20,7 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-
-JsonApi::register('default', ['namespace' => 'Api'], function (Api $api) {
+JsonApi::register('default', ['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\IpMiddleware::class]], function (Api $api) {
     $api->resource('streams', ['only' => ['index']]);
 });
