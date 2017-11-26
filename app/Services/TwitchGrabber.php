@@ -51,6 +51,10 @@ class TwitchGrabber implements SourceGrabberServiceInterface
         return Streams::insert($streamInfoLogsData);
     }
 
+    /**
+     * @param $gameId
+     * @return \Generator
+     */
     private function getStreams($gameId)
     {
         $offset = 0;

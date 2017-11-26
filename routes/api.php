@@ -15,11 +15,9 @@ use CloudCreativity\LaravelJsonApi\Routing\ApiGroup as Api;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-
-JsonApi::register('default', ['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\IpMiddleware::class]], function (Api $api) {
-    $api->resource('streams', ['only' => ['index']]);
-});
+//Route::group(['middleware' => 'auth:api'], function () {
+    JsonApi::register('default', ['namespace' => 'Api', 'middleware' => [\App\Http\Middleware\IpMiddleware::class]], function (Api $api) {
+        $api->resource('streams', ['only' => ['index']]);
+    });
+//});
